@@ -1,4 +1,14 @@
-<h1>Cocktails#index</h1>
-<% @cocktails.each do |cocktail|  %>
-  <li> <%= link_to cocktail.name, cocktail_path(cocktail) %> </li>
+<div class="container">
+  <h1>All Our Cocktails</h1>
+
+  <% @cocktails.each do |cocktail| %>
+    <div class="cocktail-card">
+      <h3> <%= link_to cocktail.name, cocktail_path(cocktail) %> </h3>
+      <ul class="inline-list"><%= cocktail.doses.count %> Ingredients
+        <% cocktail.doses.each do |dose| %>
+        <li class="inline-list-item"><%= dose.ingredient.name %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
+</div>
