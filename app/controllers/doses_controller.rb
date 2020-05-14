@@ -18,11 +18,11 @@ class DosesController < ApplicationController
     else
       render :new
     end
+  end
 
-    def destroy
-      @dose = Dose.find(params[:id])
-      @dose.destroy
-    end
+  def destroy
+    @dose = Dose.find(params[:id])
+    @dose.destroy
   end
 
   private
