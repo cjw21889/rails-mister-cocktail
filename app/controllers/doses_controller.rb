@@ -7,11 +7,23 @@ class DosesController < ApplicationController
   def new
     @cocktail = Cocktail.find(params[:cocktail_id])
     @dose = Dose.new
+    @ingredients = all_ingredients
+  end
+
+  def all_ingredients
+    ingredients = Ingredient.all
+    ingredients_array = []
+    ingredients.each do |i|
+      ingredients_array << i.name
+    end
+    return ingredients_array
   end
 
   def create
     @dose = Dose.new(dose_params)
     @cocktail = Cocktail.find(params[:cocktail_id])
+    @ingredient = Ingredient.find_by(name: params[:dose][:ingredient])
+    @dose.ingredient = @ingredient
     @dose.cocktail = @cocktail
     if @dose.save
       redirect_to cocktail_path(@cocktail)
@@ -28,6 +40,6 @@ class DosesController < ApplicationController
   private
 
   def dose_params
-    params.require(:dose).permit(:description, :ingredient_id)
+    params.require(:dose).permit(:description)
   end
 end

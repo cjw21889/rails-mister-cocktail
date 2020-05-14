@@ -1,14 +1,17 @@
 <div class="container">
   <h1>All Our Cocktails</h1>
-
-  <% @cocktails.each do |cocktail| %>
-    <div class="cocktail-card">
-      <h3> <%= link_to cocktail.name, cocktail_path(cocktail) %> </h3>
-      <ul class="inline-list"><%= cocktail.doses.count %> Ingredients
-        <% cocktail.doses.each do |dose| %>
-        <li class="inline-list-item"><%= dose.ingredient.name %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="btn btn-success"><%= link_to "Build a cocktail", new_cocktail_path %></div>
+  <div class="cocktail-card-container d-flex mt-3">
+    <% @cocktails.each do |cocktail| %>
+      <div class="cocktail-card text-center m-2">
+        <div class="cocktail-img"><%#= image_tag "...", alt: "alttext" %></div>
+        <h3> <%= link_to cocktail.name, cocktail_path(cocktail) %> </h3>
+        <ul class="inline-list"><%= cocktail.doses.count %> Ingredients
+          <% cocktail.doses.each do |dose| %>
+          <li class="inline-list-item"><%= dose.ingredient.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </div>
