@@ -1,7 +1,4 @@
 <h1>Cocktails#index</h1>
-<p>Find me in app/views/cocktails/index.html.erb</p>
-<% @ingredients.each do |ingredient|  %>
-<% ingredient[1].each do |test|  %>
-  <li> <%= test["strIngredient1"] %> </li>
+<% @cocktails.each do |cocktail|  %>
+  <li> <%= cocktail.name %> </li>
   <% end %>
-<% end %>
