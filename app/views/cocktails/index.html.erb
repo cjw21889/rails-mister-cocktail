@@ -5,10 +5,11 @@
   <div class="cocktail-card-container d-flex mt-3">
 
     <% @cocktails.each do |cocktail| %>
+    <%#raise %>
       <div class="cocktail-card text-center m-2">
         <%= link_to cocktail_path(cocktail) do %>
           <div class="cocktail-card-image">
-            <img src=<% cocktail.cocktail_img %> alt= <% cocktail.name %> >
+            <img src="">
           </div>
           <div class="cocktail-card-description">
             <h4><%= cocktail.name %></h4>
