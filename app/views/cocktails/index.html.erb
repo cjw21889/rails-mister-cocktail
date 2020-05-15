@@ -1,17 +1,38 @@
 <div class="container">
   <h1>All Our Cocktails</h1>
   <div class="btn btn-success"><%= link_to "Build a cocktail", new_cocktail_path %></div>
+
   <div class="cocktail-card-container d-flex mt-3">
+
     <% @cocktails.each do |cocktail| %>
       <div class="cocktail-card text-center m-2">
-        <div class="cocktail-img"><%#= image_tag "...", alt: "alttext" %></div>
-        <h3> <%= link_to cocktail.name, cocktail_path(cocktail) %> </h3>
-        <ul class="inline-list"><%= cocktail.doses.count %> Ingredients
-          <% cocktail.doses.each do |dose| %>
-          <li class="inline-list-item"><%= dose.ingredient.name %></li>
-          <% end %>
-        </ul>
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="cocktail-card-image">
+            <img src=<% cocktail.cocktail_img %> alt= <% cocktail.name %> >
+          </div>
+          <div class="cocktail-card-description">
+            <h4><%= cocktail.name %></h4>
+          </div>
+        <% end %>
       </div>
     <% end %>
+
   </div>
 </div>
+
+
+
+
+<!-- official -->
+<!-- <div class="cocktail-card" data-cocktail-id="22898" data-product-type="Martini &amp; Tonic">
+    <a href="https://www.martini.com/products/martini-rosso/" class="cocktail-card-link">
+      <figure>
+        <picture class="cocktail-card-picture">
+          <img class="cocktail-card-picture__img" src="https://d32miag6ta013h.cloudfront.net/master_cocktails/3140/en-gl/small/martini-drinkserves-360x700-rossoandtonic.png" alt="MARTINI ROSSO &amp; TONIC">
+        </picture>
+        <figcaption class="cocktail-card__description">
+          <h4>MARTINI ROSSO &amp; TONIC</h4>
+        </figcaption>
+      </figure>
+    </a>
+  </div> -->
