@@ -1,5 +1,12 @@
-<div class="container">
-  <h1><%= @cocktail.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%=cl_image_path @cocktail.photo.key %>')">
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+    <p> <%= link_to "✚ Add A Dose", new_cocktail_dose_path(@cocktail)  %> </p>
+    <p> <%= link_to "⬅ Back to Home", root_path  %></p>
+  </div>
+</div>
+<div class="container text-center">
+  <h3> <%= @cocktail.doses.length %> Simple Steps</h3>
 
   <% @cocktail.doses.each do |dose| %>
   <div class="dose-card">
@@ -8,6 +15,4 @@
   </div>
   <% end %>
 
-  <div class="btn btn-sucess"><%= link_to "Add A Dose", new_cocktail_dose_path(@cocktail)  %></div>
-  <div class="btn btn-sucess"><%= link_to "Back to home", root_path  %></div>
 </div>

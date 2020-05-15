@@ -1,22 +1,23 @@
-<div class="container">
-  <h1>All Our Cocktails</h1>
-  <div class="btn btn-success"><%= link_to "Build a cocktail", new_cocktail_path %></div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/cjw21889/image/upload/v1589553148/gas24jc6tsrfeulb5vr0.jpg);">
+  <div class="container">
+    <h1>Le Wagon brings me to <strong>drink</strong> especially when it comes to <strong>front end</strong></h1>
+    <p>Change your life and learn to make a drink.</p>
+  </div>
+</div>
 
-  <div class="cocktail-card-container d-flex mt-3">
+<div class="container text-center">
+  <h1>Pick Your Poision</h1>
+  <p>or</p>
+  <p class="button"><%= link_to "Build your own", new_cocktail_path %></p>
 
+  <div class="cards mt-5">
     <% @cocktails.each do |cocktail| %>
-    <%#raise %>
-      <div class="cocktail-card text-center m-2">
-        <%= link_to cocktail_path(cocktail) do %>
-          <div class="cocktail-card-image" style= "background-image: url('<%=cl_image_path cocktail.photo.key, width: 400, height: 300, crop: :fit  %>')">
-          </div>
-          <div class="cocktail-card-description">
-            <h4><%= cocktail.name %></h4>
-          </div>
-        <% end %>
-      </div>
+      <%= link_to cocktail_path(cocktail) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path cocktail.photo.key, width: 400, height: 300  %>')">
+          <h4><%= cocktail.name %></h4>
+        </div>
+      <% end %>
     <% end %>
-
   </div>
 </div>
 
