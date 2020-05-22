@@ -6,7 +6,7 @@
   </div>
 </div>
 <div class="container text-center">
-  <h3> <%= @cocktail.doses.length %> Simple Steps</h3>
+  <h3> <%= pluralize @cocktail.doses.length, "Simple Step" %> </h3>
 
   <% @cocktail.doses.each do |dose| %>
   <div class="dose-card">
